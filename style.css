@@ -1,0 +1,19 @@
+#keyboat {
+  height: 100%;
+
+  display: grid;
+
+  grid-template-columns: 15% 85%;
+  grid-template-rows: 100%;
+}
+
+#da-zone {
+  border: 1px solid gray;
+}
+
+#da-zone div {
+  border: 1px solid red;
+}
+#da-zone div div{
+  border: 1px solid green;
+}
