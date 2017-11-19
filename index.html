@@ -1,19 +1,11 @@
 <html>
   <head>
     <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.19/webcomponents-hi-sd-ce.js" charset="utf-8"></script>
   </head>
   <body>
     <div id="keyboat">
-      <div id="control-panel">
-        <div class="grid-parameter">
-          <label for="rows">Rows: <input type="text" name="rows" oninput="update('rows', value)"></label>
-        </div>
-
-        <div class="grid-parameter">
-          <label for="columns">Columns: <input type="text" name="columns" oninput="update('columns', value)"></label>
-        </div>
-
-      </div>
+      <control-panel></control-panel>
 
       <div id="da-zone">
 
@@ -21,5 +13,6 @@
     </div>
   </body>
   <script src="./dom.js" charset="utf-8"></script>
+  <script src="./control-panel/control-panel.component.js" charset="utf-8"></script>
   <script src="./main.js" charset="utf-8"></script>
 </html>
