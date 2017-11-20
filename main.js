@@ -1,14 +1,17 @@
 const daZone = document.querySelector(`#da-zone`);
-const rowsControl = document.querySelector(`#rows-control`);
+const rowsControls = document.querySelector(`#rows-control`);
+const columnsControls = document.querySelector(`#columns-control`);
 
 const globalState = {
-  rows: [],
-  columns: [],
+  rows: ['1fr', '1fr'],
+  columns: ['1fr', '1fr'],
 };
+
+render(globalState);
 
 function dispatch(event) {
   let count = 0;
-  
+
   switch(event.type) {
 
     case 'UPDATE_ROWS':
@@ -33,6 +36,10 @@ function dispatch(event) {
       // should check for valid values
       globalState.rows[event.payload.id] = event.payload.value;
       break;
+    case 'UPDATE_COLUMN':
+      // should check for valid values
+      globalState.columns[event.payload.id] = event.payload.value;
+      break;
 
     default:
 
@@ -43,6 +50,8 @@ function dispatch(event) {
 
 function render(state) {
   daZone.innerHTML = '';
+  rowsControls.innerHTML = '';
+  columnsControls.innerHTML = '';
 
   // Render Grid
   const grid = document.createElement('div');
@@ -63,15 +72,40 @@ function render(state) {
   // Render Row Controls
   state.rows
     .map(rowControl)
-    // .forEach(rowsControl.appendChild);
+    .forEach(x => {
+      rowsControls.appendChild(x);
+    });
+
+  // Render Column Controls
+  state.columns
+    .map(columnControl)
+    .forEach(x => {
+      columnsControls.appendChild(x);
+    });
 }
 
 function rowControl(row, id) {
   const div = document.createElement('div');
   div.innerHTML = `
     <label for="row-control-${id}">Row ${id}:
-      <input type="text" name="row-${id}" oninput="dispatch('UPDATE_ROW', {id: ${id}, value})">
+      <input type="text"
+             name="row-${id}"
+             onblur="dispatch({type:'UPDATE_ROW', payload: {id: ${id}, value}})"
+             placeholder="${row}">
     </label>
-  `
+  `;
+  return div;
+}
+
+function columnControl(column, id) {
+  const div = document.createElement('div');
+  div.innerHTML = `
+    <label for="column-control-${id}">Column ${id}:
+      <input type="text"
+             name="column-${id}"
+             onblur="dispatch({type:'UPDATE_COLUMN', payload: {id: ${id}, value}})"
+             placeholder="${column}">
+    </label>
+  `;
   return div;
 }
