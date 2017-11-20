@@ -5,7 +5,19 @@
   </head>
   <body>
     <div id="keyboat">
-      <control-panel></control-panel>
+      <div id="control-panel">
+        <div class="grid-parameter">
+          <label for="rows">Rows: <input type="text" name="rows" oninput="update('rows', value)"></label>
+        </div>
+
+        <div class="grid-parameter">
+          <label for="columns">Columns: <input type="text" name="columns" oninput="update('columns', value)"></label>
+        </div>
+
+        <div id="rows-control">
+
+        </div>
+      </div>
 
       <div id="da-zone">
 

@@ -6,9 +6,5 @@ function update(field, value) {
 
   const updateType = (field === 'rows') ? 'UPDATE_ROWS' : 'UPDATE_COLUMNS';
 
-  let count = 0;
-  while (count < value) {
-    dispatch({type:updateType, payload: '1fr'});
-    count++;
-  }
+  dispatch({type:updateType, payload: {number: value, size: '1fr'}});
 }
