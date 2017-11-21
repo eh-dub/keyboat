@@ -3,9 +3,9 @@
 
   display: grid;
 
-  grid-template-columns: 20% 50%;
+  grid-template-columns: 20% 70%;
   grid-template-rows: 100%;
-  grid-gap: 30%;
+  grid-gap: 10%;
 }
 
 #da-zone {

@@ -6,8 +6,23 @@
   <body>
     <div id="keyboat">
       <div id="control-panel">
+        <div class="canvas-parameter">
+          <label for="rows">Width:
+            <input type="text" name="canvas-width"
+              oninput="dispatch('rows', value)"
+              placeholder="">
+          </label>
+        </div>
+        <div class="canvas-parameter">
+          <label for="rows">Height:
+            <input type="text" name="canvas-height" oninput="dispatch('rows', value)">
+          </label>
+        </div>
+
         <div class="grid-parameter">
-          <label for="rows">Rows: <input type="text" name="rows" oninput="update('rows', value)"></label>
+          <label for="rows">Rows:
+            <input type="text" name="rows" oninput="update('rows', value)">
+          </label>
         </div>
 
         <div class="grid-parameter">
@@ -25,5 +40,5 @@
   </body>
   <script src="./dom.js" charset="utf-8"></script>
   <script src="./control-panel/control-panel.component.js" charset="utf-8"></script>
-  <script src="./main.js" charset="utf-8"></script>
+  <script src="./bundle.js" charset="utf-8"></script>
 </html>
